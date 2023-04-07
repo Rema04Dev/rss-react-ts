@@ -1,16 +1,17 @@
-import { Typography, Box } from '@mui/material';
-const Header = (props: any) => {
+import { Typography, Box, Container } from '@mui/material';
+import { PropsWithChildren } from 'react';
+import { useTranslation } from 'react-i18next';
+
+const Header: React.FC<PropsWithChildren> = (props) => {
+  const { t } = useTranslation();
+  const { children } = props;
   return (
     <>
-      <Box>
-        <Typography variant="h2" component="h1">
-          RSS агрегатор
-        </Typography>
-        <Typography>
-          Начните читать RSS сегодня! Это легко, это красиво.
-        </Typography>
-        {props.children}
-      </Box>
+      <Container sx={{ p: '48px' }}>
+        <Typography variant="h1">{t('header.title')}</Typography>
+        <Typography sx={{ mb: '1.5rem' }}>{t('header.subtitle')}</Typography>
+        {children}
+      </Container>
     </>
   );
 };
