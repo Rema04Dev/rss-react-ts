@@ -22,7 +22,7 @@ export interface IState {
   posts: Array<IPost>;
   urls: Array<string>;
   currentPostId: number | null;
-  currentFeedId: number | null;
+  currentFeedId: number | string;
   visitedPostsIds: string[];
   isOpen: boolean;
 }

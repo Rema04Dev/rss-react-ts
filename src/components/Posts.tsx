@@ -18,12 +18,11 @@ const Posts: React.FC = () => {
   const currentFeedId = useSelector((state: any) => state.data.currentFeedId);
 
   const relatedPosts =
-    currentFeedId === null
+    currentFeedId === 'all'
       ? posts
       : posts.filter((post) => post.feedId === currentFeedId);
   const dispatch = useDispatch();
   const handleOpen = () => dispatch(setOpen(true));
-  console.log(relatedPosts);
   const visitedCSS = {
     color: 'red',
     textDecoration: 'none',
@@ -46,7 +45,7 @@ const Posts: React.FC = () => {
               <ListItemText>
                 <Link
                   sx={visitedCSS}
-                  component="button"
+                  component="a"
                   target="_blank"
                   href={post.link}
                 >
@@ -74,7 +73,7 @@ const Posts: React.FC = () => {
                     dispatch(setCurrentPostId(post.id));
                     dispatch(addVisitedPost(post.id));
                   }}
-                  component="button"
+                  component="a"
                   target="_blank"
                   href={post.link}
                 >

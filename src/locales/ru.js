@@ -6,10 +6,21 @@ const ru = {
     },
     form: {
       label: 'Ссылка RSS',
-      example: 'Пример: https://ru.hexlet.io/lessons.rss',
+      example: 'Пример:',
+      send: 'Отправить',
     },
-    mustBeValid: 'Ссылка должна содержать валидный URL',
-    duplicate: 'RSS уже загружен',
+    feeds: {
+      all: 'Все фиды',
+    },
+    modal: {
+      close: 'Закрыть',
+      open: 'Перейти',
+    },
+    errors: {
+      mustBeValid: 'Ссылка должна содержать валидный URL',
+      duplicate: 'RSS уже загружен',
+      invalidRSS: 'Ресурс не содержит валидный RSS',
+    },
   },
 };
 

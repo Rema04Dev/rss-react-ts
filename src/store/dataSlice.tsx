@@ -1,12 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IState, IFeed, IPost } from '../types';
 
+const defaultFeedId = 'all';
 const initialState: IState = {
   feeds: [],
   posts: [],
   urls: [],
   currentPostId: null,
-  currentFeedId: null,
+  currentFeedId: defaultFeedId,
   visitedPostsIds: [],
   isOpen: false,
 };

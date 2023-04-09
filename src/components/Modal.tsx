@@ -6,9 +6,9 @@ import {
   DialogTitle,
   Button,
 } from '@mui/material';
-import { useState } from 'react';
 import { IPost } from '../types';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { setOpen } from '../store/dataSlice';
 interface ModalProps {
   post: IPost;
@@ -17,7 +17,7 @@ const Modal = ({ post }: ModalProps) => {
   const isOpen = useSelector((state: any) => state.data.isOpen);
   const dispatch = useDispatch();
   const handleClose = () => dispatch(setOpen(false));
-  console.log(isOpen);
+  const { t } = useTranslation();
   return (
     <>
       <Dialog
@@ -33,14 +33,15 @@ const Modal = ({ post }: ModalProps) => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Clode</Button>
+          <Button onClick={handleClose}>{t('modal.close')}</Button>
           <Button
             onClick={handleClose}
             autoFocus
             component="a"
             href={post.link}
+            target="_blank"
           >
-            Open
+            {t('modal.open')}
           </Button>
         </DialogActions>
       </Dialog>

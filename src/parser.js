@@ -1,5 +1,3 @@
-import { nanoid } from '@reduxjs/toolkit';
-
 export default (xml) => {
   const parser = new DOMParser();
   const doc = parser.parseFromString(xml, 'text/xml');
@@ -12,17 +10,13 @@ export default (xml) => {
   const feedTitle = doc.querySelector('title');
   const feedDescription = doc.querySelector('description');
   const feedItems = [...doc.querySelectorAll('item')];
-  const feedId = nanoid();
   const posts = feedItems.map((post) => ({
-    id: nanoid(),
-    feedId,
     title: post.querySelector('title').textContent,
     description: post.querySelector('description').textContent,
     link: post.querySelector('link').textContent,
   }));
   return {
     feed: {
-      id: feedId,
       title: feedTitle.textContent,
       description: feedDescription.textContent,
     },

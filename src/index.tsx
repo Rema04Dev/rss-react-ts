@@ -6,7 +6,8 @@ import store from './store/store';
 import i18next from 'i18next';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
 import resources from './locales/index';
-import { ThemeProvider } from '@mui/material';
+import { ThemeProvider, createTheme, styled } from '@mui/material';
+
 import theme from './theme';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

@@ -3,10 +3,11 @@ import Form from './Form';
 import Feeds from './Feeds';
 import Posts from './Posts';
 
-import { Container, Grid, Paper } from '@mui/material';
+import { Container, Grid, Paper, Divider } from '@mui/material';
 import Modal from './Modal';
 import { useSelector } from 'react-redux';
 import { IPost } from '../types';
+
 const App: React.FC = () => {
   const { currentPostId, posts } = useSelector((state: any) => state.data);
   const currentPost = posts.find((post: IPost) => post.id === currentPostId);
@@ -20,10 +21,10 @@ const App: React.FC = () => {
         </Header>
         <Container>
           <Grid container>
-            <Grid item xs={4}>
+            <Grid item xs={12} sm={12} md={6}>
               <Feeds />
             </Grid>
-            <Grid xs={8}>
+            <Grid item xs={12} sm={12} md={6}>
               <Posts />
             </Grid>
           </Grid>
