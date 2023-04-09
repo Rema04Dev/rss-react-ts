@@ -3,7 +3,7 @@ import Form from './Form';
 import Feeds from './Feeds';
 import Posts from './Posts';
 
-import { Container, Grid, Paper, Divider } from '@mui/material';
+import { Container, Grid, Paper, Divider, CssBaseline } from '@mui/material';
 import Modal from './Modal';
 import { useSelector } from 'react-redux';
 import { IPost } from '../types';
@@ -29,6 +29,7 @@ const App: React.FC = () => {
             </Grid>
           </Grid>
         </Container>
+        <CssBaseline />
       </Paper>
       {currentPost && <Modal post={currentPost} />}
     </main>
